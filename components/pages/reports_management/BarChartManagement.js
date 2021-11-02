@@ -2,6 +2,7 @@ import {useEffect} from "react";
 import Chart from "chart.js";
 import {reportsDataVaccinationPlaceAction} from "../../../redux/actions/reportsVaccinationPlaceAction";
 import {connect} from "react-redux";
+import randomColor from "randomcolor";
 
 function BarChartManagement(props) {
 
@@ -13,21 +14,31 @@ function BarChartManagement(props) {
             {
                 window.myBar.destroy();
             }
-            // let dataChart = {}
-            // dataChart = Object.fromEntries(Object.entries(dataChart).sort())
+            let dataChart = {}
+            dataReportsVaccinationPlace.forEach((item) => {
+                if(dataChart[item.id_vaccination_place] === undefined){
+                    dataChart[item.id_vaccination_place] = {
+                        "name": item.name_vaccination_place,
+                        "value": 1,
+                    }
+                }else{
+                    dataChart[item.id_vaccination_place].value += 1
+                }
+            })
+            let listColor = []
+            Object.keys(dataChart).forEach(item => {
+                listColor.push(randomColor())
+            })
             let config = {
                 type: "horizontalBar",
                 data: {
-                    labels: [
-                        "ME",
-                        "SE"
-                    ],
+                    labels: Object.values(dataChart).map(item => item.name),
                     datasets: [
                         {
-                            label: "Test",
-                            data: [100, 75],
-                            backgroundColor: ["#669911", "#119966" ],
-                            hoverBackgroundColor: ["#66A2EB", "#FCCE56"]
+                            label: "Số lượng người tiêm",
+                            data: Object.values(dataChart).map(item => item.value),
+                            backgroundColor: listColor,
+                            hoverBackgroundColor: listColor
                         }
                     ]
                 },
@@ -55,6 +66,8 @@ function BarChartManagement(props) {
                                 label: "",
                                 ticks: {
                                     fontColor: "#000",
+                                    beginAtZero: true,
+                                    precision: 0
                                 },
                                 display: true,
                                 scaleLabel: {
