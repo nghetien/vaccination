@@ -71,6 +71,15 @@ function Sidebar(props) {
                                 </a>
                             </Link>
                         </li>
+                        <li className={["items-center", router.asPath === "/management/reports_management" ? "bg-gray-100" : ""].join(" ")}>
+                            <Link href="/management/reports_management">
+                                <a
+                                    className="text-xs uppercase py-3 font-bold block"
+                                >
+                                    <i className="fas fa-file mx-2 text-sm"></i> Báo cáo quản lý
+                                </a>
+                            </Link>
+                        </li>
                     </ul>
                 </>
             );
@@ -105,6 +114,16 @@ function Sidebar(props) {
                                     className="text-xs uppercase py-3 font-bold block"
                                 >
                                     <i className="fas fa-id-badge mx-2 text-sm"></i> Hồ sơ tiêm chủng
+                                </a>
+                            </Link>
+                        </li>
+                        <li className={["items-center", router.asPath === "/vaccination_place/reports_vaccination_place" ? "bg-gray-100" : ""].join(" ")}>
+                            <Link href="/vaccination_place/reports_vaccination_place">
+                                <a
+                                    href="#pablo"
+                                    className="text-xs uppercase py-3 font-bold block"
+                                >
+                                    <i className="fas fa-file mx-2 text-sm"></i> Báo cáo thống kê
                                 </a>
                             </Link>
                         </li>

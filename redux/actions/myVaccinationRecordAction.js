@@ -15,7 +15,6 @@ export const getMyVaccinationRecord = () => async dispatch =>{
     try{
         dispatch(openLoadingAction())
         const res = await vaccinationRecordServices.getMyVaccinationRecordServices()
-        console.log(res)
         if(res.status === HTTP_200 && res.data.status){
             dispatch(closeLoadingAction())
             let customData = res.data.data.map((item, index)=>{

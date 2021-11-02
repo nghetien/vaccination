@@ -36,7 +36,7 @@ function Landing(props) {
                         }}
                     >
                     </div>
-                    <div className="container relative mx-auto my-36">
+                    <div className="container relative mx-auto my-24">
                         <div className="items-center flex flex-wrap">
                             <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                                 <Button variant="contained" className={SCSS.btnMain} onClick={navigateInjection}>

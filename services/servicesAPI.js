@@ -400,3 +400,42 @@ export const vaccinationRecordServices = {
         },);
     },
 }
+
+export const chartServices = {
+    getDataLineChart: () => {
+        return Axios({
+            url: `${DOMAIN_API}/reports/show_report_injection`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
+        })
+    },
+    getDataBarChart: () => {
+        return Axios({
+            url: `${DOMAIN_API}/reports/show_report_vaccine`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
+        })
+    }
+}
+
+export const reportsServices = {
+    reportsVaccinationPlaceServices: (data) => {
+        return Axios({
+            url: `${DOMAIN_API}/reports/show_reports`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            method: "POST",
+            data: data,
+        },);
+    },
+}
+
