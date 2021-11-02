@@ -24,13 +24,15 @@ const rolePage = {
         "/management/vaccination_place",
         "/management/vaccine",
         "/management/account_organization",
+        "management/reports_management"
     ],
     // 3 quan ly diem tiem
     "VACCINATION_PLACE": [
         "/vaccination_place",
         "/vaccination_place/schedule_injections",
         "/vaccination_place/vaccination_record",
-        "/vaccination_place/accept_vaccination_record"
+        "/vaccination_place/accept_vaccination_record",
+        "/vaccination_place/reports_vaccination_place",
     ],
     // 4 doanh nghiep
     "ORGANIZATION": [

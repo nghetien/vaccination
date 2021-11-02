@@ -24,6 +24,7 @@
     "@mui/styles": "^5.0.1",
     "@mui/x-data-grid": "^5.0.0-beta.2",
     "axios": "^0.21.4",
+    "chart.js": "^2.9.4",
     "cookie-cutter": "^0.2.0",
     "cookies": "^0.8.0",
     "js-cookie": "^3.0.1",
@@ -32,6 +33,7 @@
     "next": "^11.1.2",
     "next-redux-wrapper": "^7.0.5",
     "notistack": "^1.0.10",
+    "randomcolor": "^0.6.2",
     "react": "^17.0.2",
     "react-datepicker": "^4.2.1",
     "react-dom": "^17.0.2",
@@ -40,6 +42,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.42.1",
     "styled-components": "^5.3.1",
+    "xlsx": "^0.17.3",
     "yarn": "^1.22.15"
   },
   "devDependencies": {

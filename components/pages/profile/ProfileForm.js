@@ -281,12 +281,7 @@ function ProfileForm(props) {
                             </TextField>
                         </div>
                         <div className="">
-                            <label
-                                className="block uppercase text-blueGray-600 text-xs font-bold mb-3"
-                                htmlFor="grid-password"
-                            >
-                                Xã/Phường
-                            </label>
+                            <p className="mb-2">Xã/ Phường</p>
                             <TextField className="w-60 min-w-full w-full"
                                        id="outlined-select-currency"
                                        select

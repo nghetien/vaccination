@@ -7,7 +7,7 @@ import ToolbarSheduleInjections from "./ToolbarSheduleInjections";
 
 const columns = [
     {field: 'id_dangkytiem', headerName: 'ID', width: 100},
-    {field: 'id_priority', headerName: 'Độ tiên', width: 100},
+    {field: 'id_priority', headerName: 'Độ ưu tiên', width: 150},
     {field: 'email', headerName: 'Email', width: 200},
     {
         field: 'date', headerName: 'Thời gian', width: 150, renderCell: (params) => {
