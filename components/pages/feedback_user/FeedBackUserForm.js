@@ -71,7 +71,6 @@ function FeedBackUserForm(props) {
                         <Button className="mx-10" variant="contained" disabled={!dataFeedBack.value.feedback} onClick={() => {onClickFeedBackUser()}}>Gửi phản hồi</Button>
                     </div>
                 </div>
-                
             </section>
         </>
         
