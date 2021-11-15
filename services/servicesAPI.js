@@ -1,9 +1,11 @@
 import Axios from "axios";
 
-
+import qs from 'qs'
 import {DOMAIN_API} from "./domain";
 import Cookies from 'js-cookie'
 import {USER_TOKEN} from "../helper/define";
+
+const queryString = require('qs')
 
 export const registerServices = {
     getDataVaccinationPlace: () =>{
@@ -439,3 +441,18 @@ export const reportsServices = {
     },
 }
 
+export const myFeedBackService = {
+    createMyFeedBackServices: (data) => {
+        return Axios({
+            url: `${DOMAIN_API}/feedbacks/feed_back_user`,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            method: "POST",
+            data: queryString.stringify(data)
+        })
+    }
+}

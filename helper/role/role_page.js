@@ -13,6 +13,7 @@ const rolePage = {
         "/profile",
         "/registration_vaccination",
         "/my_vaccination_record",
+        "/my_feedback"
     ],
     // 1 admin
     "ADMIN": [
