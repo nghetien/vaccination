@@ -37,7 +37,7 @@ const rolePage = {
     ],
     // 4 doanh nghiep
     "ORGANIZATION": [
-
+        "/organization/home",
     ],
     // 5 nguoi dan
     "USER": [
