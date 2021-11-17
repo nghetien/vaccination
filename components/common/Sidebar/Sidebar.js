@@ -127,6 +127,16 @@ function Sidebar(props) {
                                 </a>
                             </Link>
                         </li>
+                        <li className={["items-center", router.asPath === "/vaccination_place/feedback_user" ? "bg-gray-100" : ""].join(" ")}>
+                            <Link href="/vaccination_place/feedback_user">
+                                <a
+                                    href="#pablo"
+                                    className="text-xs uppercase py-3 font-bold block"
+                                >
+                                    <i className="fas fa-comment-alt mx-2 text-sm"></i> Phản hồi sau tiêm
+                                </a>
+                            </Link>
+                        </li>
                     </ul>
                 </>
             );

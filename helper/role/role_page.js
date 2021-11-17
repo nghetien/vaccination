@@ -34,6 +34,7 @@ const rolePage = {
         "/vaccination_place/vaccination_record",
         "/vaccination_place/accept_vaccination_record",
         "/vaccination_place/reports_vaccination_place",
+        "/vaccination_place/feedback_user"
     ],
     // 4 doanh nghiep
     "ORGANIZATION": [

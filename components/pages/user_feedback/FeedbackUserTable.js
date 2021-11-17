@@ -3,48 +3,50 @@ import {DataGrid} from '@mui/x-data-grid';
 import {connect} from "react-redux";
 import Chip from '@mui/material/Chip';
 import moment from "moment";
-import ToolbarReportsVaccinationPlace from "./ToolBarVaccinationPlace";
-import {reportsDataVaccinationPlaceAction} from "../../../redux/actions/reportsVaccinationPlaceAction"
+import ToolbarFeedbackUser from "./ToolbarFeedbackUser";
+import {feedbackUserAction} from "../../../redux/actions/feedbackUserAction"
 
 const columns = [
-    {field: 'id_user', headerName: 'ID User', width: 100},
-    {field: 'name_user', headerName: 'Họ và tên', width: 200},
+    {field: 'id_user', headerName: 'ID User', width: 150},
+    {field: 'full_name', headerName: 'Họ và tên', width: 200},
     {field: 'email', headerName: 'Email', width: 200},
-    {field: 'indentify', headerName: 'CMND', width: 150},
-    {field: 'phone_number', headerName: 'Số điện thoại', width: 150},
+    {field: 'phone', headerName: 'Số điện thoại', width: 150},
     {
-        field: 'dob', headerName: 'Ngày sinh', width: 150, renderCell: (params) => {
-            return <p>{moment.unix(params.row.dob).format("DD/MM/YYYY")}</p>
-        },
-    },
-    {
-        field: 'status', headerName: 'Trạng thái', width: 150, renderCell: (params) => {
-            if(params.row.status.toString() === "1"){
-                return <Chip color="error" label="Chưa tiêm" variant="outlined"/>
+        field: 'id_vaccine', headerName: 'Vaccine', width: 150, renderCell: (params) => {
+            if(params.row.id_vaccine.toString() === "1"){
+                return <p>AstraZeneca</p>
             }
-            return <Chip color="success" label="Đã tiêm" variant="outlined"/>
+            else if(params.row.id_vaccine.toString() === "2"){
+                return <p>SPUTNIK V</p>
+            }
+            else if(params.row.id_vaccine.toString() === "3"){
+                return <p>Pfizer</p>
+            }
+            else if(params.row.id_vaccine.toString() === "4"){
+                return <p>Moderna</p>
+            }else return <p>Sinopharm</p>
         },
     },
     {
-        field: 'date', headerName: 'Ngày tiêm', width: 150, renderCell: (params) => {
-            return <p>{moment.unix(params.row.date).format("DD/MM/YYYY")}</p>
+        field: 'inject_date', headerName: 'Ngày tiêm', width: 150, renderCell: (params) => {
+            return <p>{moment.unix(params.row.inject_date).format("DD/MM/YYYY")}</p>
         },
     },
-    {field: 'name_vaccine', headerName: 'Vacxin', width: 150},
     {
         field: 'number_of_times', headerName: 'Mũi thứ', width: 150, renderCell: (params) => {
-            return <Chip color="success" label={"Mũi " + params.row.number_of_times} variant="outlined"/>
+            return <Chip color="success" label={"Mũi " + params.row.number_inject} variant="outlined"/>
         },
     },
+    {field: 'feedback', headerName: 'Phản hồi', width: 300},
 ];
 
 function escapeRegExp(value) {
     return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-function ReportsVaccinationPlaceTable(props) {
+function FeedbackUserTable(props) {
 
-    const {dataReportsVaccinationPlace} = props.dataTable
+    const {dataFeedbackUser} = props.dataTable
     // State
     const [searchText, setSearchText] = useState('');
     const [rows, setRows] = useState([]);
@@ -53,7 +55,7 @@ function ReportsVaccinationPlaceTable(props) {
     const requestSearch = (searchValue) => {
         setSearchText(searchValue);
         const searchRegex = new RegExp(escapeRegExp(searchValue), 'i');
-        const filteredRows = dataReportsVaccinationPlace.filter((row) => {
+        const filteredRows = dataFeedbackUser.filter((row) => {
             return Object.keys(row).some((field) => {
                 return searchRegex.test(row[field].toString());
             });
@@ -70,25 +72,20 @@ function ReportsVaccinationPlaceTable(props) {
     const [pageSize, setPageSize] = useState(5);
 
     useEffect(() => {
-        setRows(dataReportsVaccinationPlace);
-    }, [dataReportsVaccinationPlace]);
+        setRows(dataFeedbackUser);
+    }, [dataFeedbackUser]);
 
     useEffect(() => {
-        props.reportsDataVaccinationPlaceAction({
-            dateFrom: new Date('2018-01-01'),
-            dateTo: new Date(),
-            status: 0,
-            numberOfTime: 0,
+        props.feedbackUserAction({
+            injectionDate: new Date(),
             idVaccine: 0,
-            ageFrom: 0,
-            ageTo: 200,
         });
     }, [])
 
     return (
         <div style={{height: 700, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: ToolbarReportsVaccinationPlace}}
+                components={{Toolbar: ToolbarFeedbackUser}}
                 rows={rows}
                 columns={columns}
                 sortModel={sortModel}
@@ -109,11 +106,11 @@ function ReportsVaccinationPlaceTable(props) {
 }
 
 const mapStateToProps = (state) => ({
-    dataTable : state.reportsVaccinationPlaceReducer
+    dataTable : state.feedbackUserReducer
 });
 
 const mapDispatchToProps = {
-    reportsDataVaccinationPlaceAction
+    feedbackUserAction
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReportsVaccinationPlaceTable);
+export default connect(mapStateToProps, mapDispatchToProps)(FeedbackUserTable);

@@ -4,7 +4,7 @@ import RegistrationVaccinationForm from "../components/pages/registration_vaccin
 import {connect} from "react-redux";
 import {useRouter} from "next/router";
 import {snackActions} from "../helper/showSnackBar";
-import FeedBackUserForm from "../components/pages/feedback_user/FeedBackUserForm";
+import FeedBackUserForm from "../components/pages/my_feedback/FeedBackUserForm";
 
 function MyFeedBack(props) {
 

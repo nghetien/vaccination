@@ -456,3 +456,18 @@ export const myFeedBackService = {
         })
     }
 }
+
+export const feedbackUserServices = {
+    feedbackUserVaccinationPlaceServices: (data) => {
+        return Axios({
+            url: `${DOMAIN_API}/feedbacks/show_feedback`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            method: "POST",
+            data: data,
+        },);
+    },
+}

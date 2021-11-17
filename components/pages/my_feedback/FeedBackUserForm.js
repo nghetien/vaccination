@@ -30,14 +30,7 @@ function FeedBackUserForm(props) {
             const result = await props.createMyFeedBack(dataFeedBack.value)
             if (result) {
                 snackActions.success('Gửi phản hồi thành công 🎉')
-                setDataFeedBack(state => ({
-                    value: {
-                        feedback: ""
-                    },
-                    error: {
-                        feedback: false
-                    }
-                }))
+                await router.push('/')
             } else {
                 snackActions.error('Gửi phản hồi không thành công. Vui lòng thử lại!')
             }
