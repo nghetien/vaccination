@@ -154,7 +154,7 @@ function Login(props) {
                         </div>
                         <div className="flex flex-wrap mt-6 relative">
                             <div className="w-1/2">
-                                <Link href="/">
+                                <Link href="/forgot_password">
                                     <a href="#" className="text-white">
                                         <small>Quên mật khẩu?</small>
                                     </a>

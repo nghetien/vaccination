@@ -13,18 +13,6 @@ export const getDataReportVaccinationPlace = (dataReports) => ({
 //Create register person
 export const reportsDataVaccinationPlaceAction = (dataFilter) => async dispatch => {
     try {
-        console.log({
-            id_sub_district: dataFilter.idSubDistrict === undefined ? 0 : dataFilter.idSubDistrict,
-            id_district: dataFilter.idDistrict === undefined ? 0 : dataFilter.idDistrict,
-            id_vaccination_place: dataFilter.idVaccinationPlace === undefined ? 0 : dataFilter.idVaccinationPlace,
-            date_from: Math.floor(dataFilter.dateFrom.getTime() / 1000),
-            date_to: Math.floor(dataFilter.dateTo.getTime() / 1000),
-            status: dataFilter.status,
-            number_of_time: dataFilter.numberOfTime ? dataFilter.numberOfTime : 0,
-            id_vaccine: dataFilter.idVaccine,
-            age_from: dataFilter.ageFrom ? dataFilter.ageFrom : 0,
-            age_to: dataFilter.ageTo ? dataFilter.ageTo : 0,
-        })
         dispatch(openLoadingAction())
         const res = await reportsServices.reportsVaccinationPlaceServices({
             id_sub_district: dataFilter.idSubDistrict === undefined ? 0 : dataFilter.idSubDistrict,

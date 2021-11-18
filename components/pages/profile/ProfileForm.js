@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import {connect} from "react-redux";
 import {dataAllCity, dataAllDistrict, dataAllSubDistrict} from "../vaccination_place/AddVaccinationPlace";
 import {changeProfileAction} from "../../../redux/actions/profileAction";
+import {useRouter} from "next/router";
 
 export const dataGender = [
     {
@@ -24,6 +25,7 @@ export const dataGender = [
 ]
 
 function ProfileForm(props) {
+    const router = useRouter();
 
     const {userInfo} = props.userInfo;
 
@@ -299,8 +301,13 @@ function ProfileForm(props) {
                         </div>
                     </div>
                 </div>
-                <div className="mt-12 flex justify-between">
-                    <Button className="mx-10" variant="contained" onClick={onClickChangeProfile}>Xác nhận</Button>
+                <div className="flex flex-row justify-between">
+                    <div className="mt-12 flex justify-between">
+                        <Button className="mx-10" variant="contained" onClick={onClickChangeProfile}>Xác nhận</Button>
+                    </div>
+                    <div className="mt-12 flex justify-between">
+                        <Button className="mx-10" variant="contained" color="warning" onClick={()=>{router.push("/change_password")}}>Đổi mật khẩu</Button>
+                    </div>
                 </div>
             </div>
         </section>

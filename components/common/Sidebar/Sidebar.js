@@ -28,9 +28,8 @@ function Sidebar(props) {
                 <>
                     <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                         <li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>
-                            <Link href="/">
+                            <Link href="/admin">
                                 <a
-                                    href="#pablo"
                                     className="text-xs uppercase py-3 font-bold block"
                                 >
                                     <i className="fas fa-hospital-user mx-2 text-sm"></i> Quản lý tài khoản
@@ -135,7 +134,7 @@ function Sidebar(props) {
                 <>
                     <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                         <li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>
-                            <Link href="/">
+                            <Link href="/organization">
                                 <a
                                     href="#pablo"
                                     className="text-xs uppercase py-3 font-bold block"

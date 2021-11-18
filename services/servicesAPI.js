@@ -6,13 +6,13 @@ import Cookies from 'js-cookie'
 import {USER_TOKEN} from "../helper/define";
 
 export const registerServices = {
-    getDataVaccinationPlace: () =>{
+    getDataVaccinationPlace: () => {
         return Axios({
             url: `${DOMAIN_API}/vaccination_place/show_vaccination_place_`,
             method: "GET"
         })
     },
-    registrationVaccinationServices: (data) =>{
+    registrationVaccinationServices: (data) => {
         return Axios({
             url: `${DOMAIN_API}/injections/registration_vaccination`,
             method: "POST",
@@ -34,7 +34,20 @@ export const registerServices = {
                 "token": Cookies.get(USER_TOKEN)
             }
         })
-    }
+    },
+    registerInjectionOrganization: (formData) => {
+        return Axios({
+            url: `${DOMAIN_API}/injections_organization/uploadfile`,
+            method: "POST",
+            headers: {
+                'content-type': 'multipart/form-data',
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            data: formData
+        })
+    },
 }
 
 export const vaccinesServices = {
@@ -146,6 +159,10 @@ export const authServices = {
     loginUserServices: (email, password) => {
         return Axios({
             url: `${DOMAIN_API}/login`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
             method: "POST",
             data: {
                 "username": email,
@@ -156,6 +173,10 @@ export const authServices = {
     registerAccountServices: (email, password) => {
         return Axios({
             url: `${DOMAIN_API}/sign_up_person`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
             method: "POST",
             data: {
                 "email": email,
@@ -166,6 +187,10 @@ export const authServices = {
     sendEmailOTPServices: (email) => {
         return Axios({
             url: `${DOMAIN_API}/send_otp`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
             method: "GET",
             params: {
                 "email": email,
@@ -175,6 +200,10 @@ export const authServices = {
     verifyOTPServices: (email, otp) => {
         return Axios({
             url: `${DOMAIN_API}/verify_otp`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
             method: "POST",
             data: {
                 "otp": otp,
@@ -185,10 +214,40 @@ export const authServices = {
     registerOrganizationServices: (dataOrganization) => {
         return Axios({
             url: `${DOMAIN_API}/sign_up_organization`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
             method: "POST",
             data: dataOrganization,
         },);
     },
+    forgotPasswordServices: (email) => {
+        return Axios({
+            url: `${DOMAIN_API}/forget_pass`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            },
+            method: "POST",
+            data: {'email': email},
+        },);
+    },
+    changePasswordServices: (oldPassword, newPassword) => {
+        return Axios({
+            url: `${DOMAIN_API}/users/change_pass`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+            method: "POST",
+            data: {
+                "old_pass": oldPassword,
+                "new_pass": newPassword
+            },
+        },);
+    }
 }
 
 export const userServices = {
@@ -266,6 +325,17 @@ export const accountOrganizationServices = {
         return Axios({
             url: `${DOMAIN_API}/organization/approve_organization/${idAccount}`,
             method: "POST",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        })
+    },
+    getAllDataVaccineOrganization: () => {
+        return Axios({
+            url: `${DOMAIN_API}/injections_organization/show_inject_organization`,
+            method: "GET",
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",

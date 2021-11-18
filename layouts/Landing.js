@@ -23,6 +23,36 @@ function Landing(props) {
         }
     }
 
+    const showRegisterInjection = () => {
+        if(userInfo.idRole !== undefined && userInfo.idRole.toString() === "5"){
+            return (
+                <>
+                    <div className="container relative mx-auto my-24">
+                        <div className="items-center flex flex-wrap">
+                            <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                                <Button variant="contained" className={SCSS.btnMain} onClick={navigateInjection}>
+                                    <p>Đăng ký tiêm ngay </p>
+                                    <i className="fas fa-chevron-right mb-0.5"/>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        }else{
+            return (
+                <>
+                    <div className="container relative mx-auto my-24">
+                        <div className="items-center flex flex-wrap">
+                            <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+                            </div>
+                        </div>
+                    </div>
+                </>
+            )
+        }
+    }
+
     return (
         <>
             <LandingNavbar transparent/>
@@ -36,16 +66,7 @@ function Landing(props) {
                         }}
                     >
                     </div>
-                    <div className="container relative mx-auto my-24">
-                        <div className="items-center flex flex-wrap">
-                            <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                                <Button variant="contained" className={SCSS.btnMain} onClick={navigateInjection}>
-                                    <p>Đăng ký tiêm ngay </p>
-                                    <i className="fas fa-chevron-right mb-0.5"/>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
+                    {showRegisterInjection()}
                 </div>
             </main>
             {props.children}

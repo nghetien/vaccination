@@ -6,6 +6,7 @@ const rolePage = {
         "/login/verify_otp",
         "/register",
         "/register/register_organization",
+        "forgot_password",
     ],
     // phải đăng nhập mới vào đc
     "USER_LOGIN": [
@@ -13,6 +14,7 @@ const rolePage = {
         "/profile",
         "/registration_vaccination",
         "/my_vaccination_record",
+        "/change_password",
     ],
     // 1 admin
     "ADMIN": [
@@ -36,7 +38,7 @@ const rolePage = {
     ],
     // 4 doanh nghiep
     "ORGANIZATION": [
-
+        "/organization",
     ],
     // 5 nguoi dan
     "USER": [
