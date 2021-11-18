@@ -74,6 +74,9 @@ function LandingNavbar(props) {
                     <MenuItem onClick={async ()=>{await router.push("/my_vaccination_record")}}>
                         <p>Hồ sơ tiêm chủng</p>
                     </MenuItem>
+                    <MenuItem onClick={async ()=>{await router.push("/my_feedback")}}>
+                        <p>Cập nhật tình hình sau tiêm</p>
+                    </MenuItem>
                 </div>
             )
         }

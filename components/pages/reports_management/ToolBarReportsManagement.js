@@ -17,6 +17,7 @@ import Button from "@mui/material/Button";
 import moment from "moment";
 import {dataAllDistrict} from "../vaccination_place/AddVaccinationPlace";
 import {getAllVaccinationPlace} from "../../../redux/actions/vaccinationPlaceAction";
+import {gridClasses, GridToolbarContainer, GridToolbarExport} from "@mui/x-data-grid";
 
 function ToolBarReportsManagement(props) {
 
@@ -117,6 +118,9 @@ function ToolBarReportsManagement(props) {
                     <Button variant="text" onClick={downloadExcel}> <i className="fas fa-download mr-2"/> Xuất file
                         Excel</Button>
                 </div>
+                <GridToolbarContainer className={gridClasses.toolbarContainer}>
+                    <GridToolbarExport />
+                </GridToolbarContainer>
             </div>
             <div className="flex">
                 <div className="mx-5">

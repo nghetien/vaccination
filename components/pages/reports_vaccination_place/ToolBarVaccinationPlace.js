@@ -120,6 +120,9 @@ function ToolbarReportsVaccinationPlace(props) {
                     <Button variant="text" onClick={downloadExcel}> <i className="fas fa-download mr-2"/> Xuất file
                         Excel</Button>
                 </div>
+                <GridToolbarContainer className={gridClasses.toolbarContainer}>
+                    <GridToolbarExport />
+                </GridToolbarContainer>
             </div>
             <div className="flex">
                 <div className="mx-5">
